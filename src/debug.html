@@ -12,6 +12,7 @@
 	<body>	
 		<div class="page">
 			<h1>Basic Example</h1>
+			<div><input type="text" id="myInput" onkeyup="filterValues()" placeholder="Search..."></div>
 			<div id="grid1" style="height:400px;width:700px"></div>
 		</div>	
 
@@ -32,10 +33,9 @@
 			];
 
 			var grid = new S.grid("grid1");
-			grid.columns = columns;	
-			grid.values = createValues(200);
-			grid.update();
-			grid.values = createValues(500);
+			grid.columns = columns;
+			var storedvalues = createValues(500);
+			grid.values = storedvalues;
 			grid.reload();
 
 			function createValues(count) {
@@ -50,6 +50,25 @@
 				return values;
 			}	
 			
+			function filterValues(){
+				var values = storedvalues;
+				var newvalues = [];
+				for (var i = 0; i < values.length; i++){
+					words = values[i];
+					var hit = false;
+					words.forEach(function(element) {
+					  if (element.indexOf(document.getElementById('myInput').value) > -1){
+						hit = true;
+					  }
+					});
+					if (hit){
+						newvalues.push(words);
+					}
+				}
+				grid.values = newvalues;
+				grid.reload();
+			}
+
 			grid.onCellChanged = function(newValue, oldValue, cell) {
 				console.log(
 					"Cell", cell.rowIndex, cell.columnIndex, 
