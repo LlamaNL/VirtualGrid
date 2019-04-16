@@ -43,8 +43,8 @@
 				for (var i = 0; i < count; i++) {
 					var row = [];
 					values.push(row);
-					for (var k = 0; k < 4; k++) {
-						row.push("hola " + i);
+					for (var k = 0; k < 3; k++) {
+						row.push("hola " + Math.floor(Math.random() * count));
 					}
 				}
 				return values;
@@ -52,9 +52,9 @@
 			
 			grid.onCellChanged = function(newValue, oldValue, cell) {
 				console.log(
-					"Celda", cell.rowIndex, cell.columnIndex, 
-					"Antiguo valor:", oldValue,
-					"Nuevo:", newValue);
+					"Cell", cell.rowIndex, cell.columnIndex, 
+					"Previous Value:", oldValue,
+					"New:", newValue);
 			}
 		</script>
 	</body>

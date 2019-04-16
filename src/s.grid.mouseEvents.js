@@ -10,6 +10,30 @@
             grid.setFocus(cell.rowIndex, cell.columnIndex);
           }
       });
+      S.attach(grid.headerPanel, "mousedown", function(e) {
+        e = e || window.event;
+        var target = e.target || e.srcElement,
+        text = target.textContent || target.innerText;   
+        // get columnindex from text (TODO: this sucks, figure out better method)
+        var columnIndex = -1;
+        for (var i = 0; i < columns.length; i++) {        
+            if (columns[i].text == text){
+              columnIndex = i;
+            }
+        }
+
+        // sort columnIndex
+        grid.values = grid.values.sort(function(a,b) {
+          if (a[columnIndex] === b[columnIndex]) {
+            return 0;
+          }
+          else {
+            return (a[columnIndex] < b[columnIndex]) ? -1 : 1;
+          }       
+        });
+
+        grid.reload();
+      }, false);
   };
 
 })();
