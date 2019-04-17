@@ -43,6 +43,7 @@
 
 			var grid = new S.grid("grid1");
 			grid.columns = columns;
+			var storedvalues = [];
 			setModel(500);
 			grid.reload();
 
@@ -66,26 +67,14 @@
 			}
 
 			function filterValues(){
-				var values = storedvalues;
-				var newvalues = [];
-				for (var i = 0; i < values.length; i++){
-					words = values[i];
-					var hit = false;
-					words.forEach(function(element) {
-					  if (element.indexOf(document.getElementById('myInput').value) > -1){
-						hit = true;
-					  }
-					});
-					if (hit){
-						newvalues.push(words);
-					}
-				}
+				var filtervalue = document.getElementById('myInput').value;
+				var newvalues = storevalues.filter(x => x.some(y => y.includes(filtervalue)));
 				grid.values = newvalues;
 				grid.reload();
 				// set focus back to inputbox because reload steals focus
 				document.getElementById('myInput').focus();
 			}
-
+			
 			grid.onCellChanged = function(newValue, oldValue, cell) {
 				console.log(
 					"Cell", cell.rowIndex, cell.columnIndex, 
