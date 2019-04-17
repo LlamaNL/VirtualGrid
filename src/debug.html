@@ -13,7 +13,16 @@
 		<div class="page">
 			<h1>Basic Example</h1>
 			<div><input type="text" id="myInput" onkeyup="filterValues()" placeholder="Search..."></div>
-			<div id="grid1" style="height:400px;width:700px"></div>
+			</br>
+			<div id="grid1" style="height:400px;width:800px"></div>
+			</br>
+			<div class="margin">
+					<input type="button" value="250 rows" onclick="setModel(250)" />
+					<input type="button" value="2,500 rows" onclick="setModel(2500)" />
+					<input type="button" value="25,000 rows" onclick="setModel(25000)" />
+					<input type="button" value="250,000 rows" onclick="setModel(250000)" />
+					<input type="button" value="1,000,000 rows" onclick="setModel(1000000)" />
+			</div>
 		</div>	
 
 		<script src="s.js"></script>
@@ -34,8 +43,7 @@
 
 			var grid = new S.grid("grid1");
 			grid.columns = columns;
-			var storedvalues = createValues(500);
-			grid.values = storedvalues;
+			setModel(500);
 			grid.reload();
 
 			function createValues(count) {
@@ -50,6 +58,13 @@
 				return values;
 			}	
 			
+			function setModel(count){
+				var temp = createValues(count);
+				storevalues = temp;
+				grid.values = temp;
+				grid.reload();
+			}
+
 			function filterValues(){
 				var values = storedvalues;
 				var newvalues = [];
@@ -67,6 +82,7 @@
 				}
 				grid.values = newvalues;
 				grid.reload();
+				// set focus back to inputbox because reload steals focus
 				document.getElementById('myInput').focus();
 			}
 
