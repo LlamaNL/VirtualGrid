@@ -12,15 +12,9 @@
       });
       S.attach(grid.headerPanel, "mousedown", function(e) {
         e = e || window.event;
-        var target = e.target || e.srcElement,
-        text = target.textContent || target.innerText;   
-        // get columnindex from text (TODO: this sucks, figure out better method)
-        var columnIndex = -1;
-        for (var i = 0; i < columns.length; i++) {        
-            if (columns[i].text == text){
-              columnIndex = i;
-            }
-        }
+        var target = e.target || e.srcElement;
+
+        var columnIndex = target.className.split(' ')[2];
 
         // sort columnIndex
         grid.values = grid.values.sort(function(a,b) {

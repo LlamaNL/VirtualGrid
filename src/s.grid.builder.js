@@ -50,7 +50,7 @@
 
         for (var i = 0, l = totalColumns; i < l; i++) {
           var cell = createCell(grid, grid.columns[i].text, 0, i, innerPanel, 0);
-          cell.element.className += " header";
+          cell.element.className += " header " + i.toString();
         }
 
         globalPanel.appendChild(headerPanel);
