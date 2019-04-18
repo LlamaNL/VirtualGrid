@@ -29,6 +29,16 @@
 
       initialized = true;
     };
+    
+    this.filterValues = function(element){
+      if (!element){
+        return;
+      }
+      grid.values = storedvalues.filter(x => x.some(y => y.toString().indexOf(element.value) > -1 ));
+      grid.reload();
+      // set focus back to inputbox because reload steals focus
+      element.focus();
+    }
 
     this.getCell = function(rowIndex, columnIndex) {
       if(grid.columns.length <= columnIndex) {
