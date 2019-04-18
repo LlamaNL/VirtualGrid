@@ -43,7 +43,8 @@
 
 			var grid = new S.grid("grid1");
 			grid.columns = columns;
-			setModel(500);
+			grid.values = createValues(count)
+			grid.reload();
 
 			function createValues(count) {
 				var values = [];
@@ -56,11 +57,6 @@
 				}
 				return values;
 			}	
-			
-			function setModel(count){
-				grid.values = createValues(count)
-				grid.reload();
-			}
 		</script>
 	</body>
 </html>
