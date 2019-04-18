@@ -60,13 +60,13 @@
 			
 			function setModel(count){
 				var temp = createValues(count);
-				storevalues = temp;
+				storedvalues = temp;
 				grid.values = temp;
 				grid.reload();
 			}
 
 			function filterValues(){
-				grid.values = storevalues.filter(x => x.some(y => y.toString().indexOf(document.getElementById('myInput').value) > -1 ));
+				grid.values = storedvalues.filter(x => x.some(y => y.toString().indexOf(document.getElementById('myInput').value) > -1 ));
 				grid.reload();
 				// set focus back to inputbox because reload steals focus
 				document.getElementById('myInput').focus();
