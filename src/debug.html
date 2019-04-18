@@ -66,9 +66,7 @@
 			}
 
 			function filterValues(){
-				var filtervalue = document.getElementById('myInput').value;
-				var newvalues = storevalues.filter(x => x.some(y => y.toString().indexOf(filtervalue) > -1 ));
-				grid.values = newvalues;
+				grid.values = storevalues.filter(x => x.some(y => y.toString().indexOf(document.getElementById('myInput').value) > -1 ));
 				grid.reload();
 				// set focus back to inputbox because reload steals focus
 				document.getElementById('myInput').focus();
