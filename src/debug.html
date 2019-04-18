@@ -43,7 +43,6 @@
 
 			var grid = new S.grid("grid1");
 			grid.columns = columns;
-			var storedvalues = [];
 			setModel(500);
 
 			function createValues(count) {
@@ -59,17 +58,8 @@
 			}	
 			
 			function setModel(count){
-				var temp = createValues(count);
-				storedvalues = temp;
-				grid.values = temp;
+				grid.values = createValues(count)
 				grid.reload();
-			}
-
-			grid.onCellChanged = function(newValue, oldValue, cell) {
-				console.log(
-					"Cell", cell.rowIndex, cell.columnIndex, 
-					"Previous Value:", oldValue,
-					"New:", newValue);
 			}
 		</script>
 	</body>

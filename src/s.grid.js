@@ -6,7 +6,9 @@
     var grid = this;
     this.container = S.get(container);
     this.columns = null;
-    this.values = null;
+    this.backup = null;
+    this._values = null;
+    //this.values = null;
     this.panel = null;
     this.totalRows = 0;
     this.setOddRowStyle = false;
@@ -15,6 +17,16 @@
     var initialized = false;
     var lastScrollLeft = 0;
     var lastScrollTop = 0;
+
+    Object.defineProperty(grid, 'values', {
+      get: function() {
+          return this._values;
+      },
+      set: function(values) {
+          this._values = values;
+          this.backup = values;
+      }
+    });
 
     function init() {
       grid.build(); 
@@ -34,7 +46,7 @@
       if (!element){
         return;
       }
-      grid.values = storedvalues.filter(x => x.some(y => y.toString().indexOf(element.value) > -1 ));
+      grid.values = this.backup.filter(x => x.some(y => y.toString().indexOf(element.value) > -1 ));
       grid.reload();
       // set focus back to inputbox because reload steals focus
       element.focus();
