@@ -7,7 +7,12 @@
       S.attach(grid.panel, "mousedown", function(e) {
           var cell = grid.getCellAtEvent(e);
           if(cell != null) {
-            grid.setFocus(cell.rowIndex, cell.columnIndex);
+            if (!e.ctrlKey){
+              grid.setFocus(cell.rowIndex, cell.columnIndex, false);
+            }
+            else {
+              grid.setFocus(cell.rowIndex, cell.columnIndex, true);
+            }
           }
       });
       S.attach(grid.headerPanel, "mousedown", function(e) {

@@ -3,10 +3,18 @@
   "use strict";
 
 
-  S.grid.prototype.setFocus = function(rowIndex, columnIndex) {
+  S.grid.prototype.setFocus = function(rowIndex, columnIndex, multi) {
     var grid = this;
-    initFocusBoder();
 
+    if (multi === false){
+      var removeEl = document.querySelectorAll('.focus');
+      for (var i = 0; i < removeEl.length; i++) {
+        removeEl[i].remove();
+      } 
+    } 
+
+    initFocusBoder();
+  
     if(rowIndex >= grid.rows.length) {
       rowIndex = grid.rows.length - 1;
     }
@@ -19,7 +27,11 @@
 
     if(cell != null) {
       setBorderBounds(cell);
-
+      if (multi === false || grid.selected === null){
+          grid.selected = [];
+      }
+      grid.selected.push(cell.value);
+      console.log(grid.selected);
       // darle el foco para que reciba eventos de teclado
       cell.element.focus();
     }
@@ -34,19 +46,14 @@
     }
 
     function initFocusBoder () {
-      if(grid.focusBorder == null) {
         grid.focusBorder = document.createElement("div");
         grid.focusBorder.className = "focus";
         grid.panel.appendChild(grid.focusBorder);
-      }
-      else if (grid.focusBorder.parentNode == null) {
+        if (grid.focusBorder.parentNode == null) {
         grid.panel.appendChild(grid.focusBorder);
       }
   }
   };
-
-
-
 })();
    
 

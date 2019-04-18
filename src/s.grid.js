@@ -15,6 +15,7 @@
     this.focusBorder = null;
     this.shortcuts = [];
     var initialized = false;
+    this.selected = [];
     var lastScrollLeft = 0;
     var lastScrollTop = 0;
 
