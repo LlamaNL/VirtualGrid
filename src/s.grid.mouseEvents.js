@@ -22,7 +22,7 @@
         var columnIndex = target.className.split(' ')[2];
 
         // sort columnIndex
-        grid.values = grid.values.sort(function(a,b) {
+        var newvalues = grid.values.sort(function(a,b) {
           if (a[columnIndex] === b[columnIndex]) {
             return 0;
           }
@@ -30,8 +30,7 @@
             return (a[columnIndex] < b[columnIndex]) ? -1 : 1;
           }       
         });
-
-        grid.reload();
+        grid.setValues(newvalues);
       }, false);
   };
 

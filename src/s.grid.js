@@ -19,9 +19,10 @@
     var lastScrollTop = 0;
 
     this.setValues = function (values, init){
-      this.values = values;
+      grid.values = values;
       if (init === true){
-        this.backup = values;
+        // this is passed by reference, so any sort of grid.values sorts grid.backup
+        grid.backup = values;
       }
       grid.reload();
     }
@@ -44,8 +45,7 @@
       if (!element){
         return;
       }
-      grid.values = this.backup.filter(x => x.some(y => y.toString().indexOf(element.value) > -1 ));
-      grid.reload();
+      grid.setValues(this.backup.filter(x => x.some(y => y.toString().indexOf(element.value) > -1 )));
       // set focus back to inputbox because reload steals focus
       element.focus();
     }
