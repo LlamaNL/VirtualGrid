@@ -7,8 +7,7 @@
     this.container = S.get(container);
     this.columns = null;
     this.backup = null;
-    this._values = null;
-    //this.values = null;
+    this.values = null;
     this.panel = null;
     this.totalRows = 0;
     this.setOddRowStyle = false;
@@ -19,15 +18,13 @@
     var lastScrollLeft = 0;
     var lastScrollTop = 0;
 
-    Object.defineProperty(grid, 'values', {
-      get: function() {
-          return this._values;
-      },
-      set: function(values) {
-          this._values = values;
-          this.backup = values;
+    this.setValues = function (values, init){
+      this.values = values;
+      if (init === true){
+        this.backup = values;
       }
-    });
+      grid.reload();
+    }
 
     function init() {
       grid.build(); 

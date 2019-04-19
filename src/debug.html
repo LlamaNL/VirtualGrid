@@ -17,11 +17,11 @@
 			<div id="grid1" style="height:400px;width:800px"></div>
 			</br>
 			<div class="margin">
-					<input type="button" value="250 rows" onclick="setModel(250)" />
-					<input type="button" value="2,500 rows" onclick="setModel(2500)" />
-					<input type="button" value="25,000 rows" onclick="setModel(25000)" />
-					<input type="button" value="250,000 rows" onclick="setModel(250000)" />
-					<input type="button" value="1,000,000 rows" onclick="setModel(1000000)" />
+					<input type="button" value="250 rows" onclick="grid.setValues(createValues(250), true)" />
+					<input type="button" value="2,500 rows" onclick="grid.setValues(createValues(2500), true)" />
+					<input type="button" value="25,000 rows" onclick="grid.setValues(createValues(25000), true)" />
+					<input type="button" value="250,000 rows" onclick="grid.setValues(createValues(250000), true)" />
+					<input type="button" value="1,000,000 rows" onclick="grid.setValues(createValues(1000000), true)" />
 			</div>
 		</div>	
 
@@ -43,7 +43,7 @@
 
 			var grid = new S.grid("grid1");
 			grid.columns = columns;
-			grid.values = createValues(500);
+			grid.setValues(createValues(500), true);
 			grid.reload();
 
 			function createValues(count) {

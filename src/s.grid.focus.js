@@ -31,7 +31,6 @@
           grid.selected = [];
       }
       grid.selected.push(cell.value);
-      console.log(grid.selected);
       // darle el foco para que reciba eventos de teclado
       cell.element.focus();
     }
