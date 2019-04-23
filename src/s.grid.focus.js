@@ -11,6 +11,7 @@
       for (var i = 0; i < removeEl.length; i++) {
         removeEl[i].remove();
       } 
+      grid.selected = [];
     } 
 
     initFocusBoder();
