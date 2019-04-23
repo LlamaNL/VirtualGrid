@@ -7,6 +7,8 @@
   var KEY_LEFT = 37;
   var KEY_RIGHT = 39;
   var TAB = 9;
+  var cKey = 67;
+  var vKey = 86;
 
 	S.grid.prototype.initEditEvents = function() {
   	  	var grid = this;
@@ -118,7 +120,13 @@
 			          }
 			          S.stopBubble(e);
 			      }
-		          break;
+							break;
+							
+							case cKey:
+							if (e.ctrlKey) {
+								S.copyTextToClipboard(grid.selected);
+							}
+							break;
 		    }
 		}
 

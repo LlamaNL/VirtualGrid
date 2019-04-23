@@ -12,8 +12,6 @@
   var SHIFT = 16;
   var SUPR = 46;
   var TAB = 9;
-  var vKey = 86;
-  var cKey = 67;
 
   S.grid.prototype.initKeyboardEvents = function() {
     var grid = this;
@@ -78,11 +76,7 @@
         grid.setValue(cell, null);
         S.stopBubble(e);
         break;
-      case cKey:
-        if (e.ctrlKey) {
-            // change in s.grid.edit.js
-        }
-        break;
+
       default:
         /*var specialKeyPressed = e.ctrlKey || e.shiftKey || e.shiftKey;
         if(specialKeyPressed) {
