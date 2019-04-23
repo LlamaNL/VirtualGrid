@@ -12,7 +12,9 @@
   var SHIFT = 16;
   var SUPR = 46;
   var TAB = 9;
-
+  var cKey = 67;
+  var vKey = 86;
+  
   S.grid.prototype.initKeyboardEvents = function() {
     var grid = this;
     var rows = grid.rows;
@@ -65,6 +67,14 @@
           grid.setFocus(cell.rowIndex, cell.columnIndex + 1);
         }
         S.stopBubble(e);
+        break;
+        case cKey:
+        if (e.ctrlKey) {
+          var selected = grid.selected.map(function(cell){
+            return cell.value;
+          });
+          S.copyTextToClipboard(selected);
+        }
         break;
 
       case CTRL:
