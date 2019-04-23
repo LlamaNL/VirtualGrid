@@ -24,13 +24,15 @@
     }
 
     var cell = grid.getCell(rowIndex, columnIndex);
+    var arrayContainsObject = grid.selected.includes(cell);
 
-    if(cell != null) {
+    if(cell != null && !arrayContainsObject) {
       setBorderBounds(cell);
       if (multi === false || grid.selected === null){
           grid.selected = [];
       }
-      grid.selected.push(cell.value);
+      grid.selected.push(cell);
+      // TODO: add check to see duplicates
       // darle el foco para que reciba eventos de teclado
       cell.element.focus();
     }

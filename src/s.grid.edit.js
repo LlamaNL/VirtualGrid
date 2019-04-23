@@ -124,7 +124,10 @@
 							
 							case cKey:
 							if (e.ctrlKey) {
-								S.copyTextToClipboard(grid.selected);
+								var selected = grid.selected.map(function(cell){
+									return cell.value;
+								});
+								S.copyTextToClipboard(selected);
 							}
 							break;
 		    }
