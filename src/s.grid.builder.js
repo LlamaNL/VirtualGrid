@@ -183,13 +183,15 @@
       function createRowNumberCell(rowIndex, panel) {
           var element = S.create("div", null, "cell rowNumber", panel, rowIndex + 1);
           S.attach(element, "mousedown", function(e) {
-            // copy all 3 cells to the clipboard
-            var row = grid.rows[rowIndex].cells;
-            var values = [];
-            for (var i = 0; i < row.length; i++){
-              values.push(row[i].value);
+            // select all 3 cells
+            // focus on first cell in row
+            // multifocus on remaining
+            grid.setFocus(rowIndex, 0, false);
+            for (var i = 1; i < grid.columns.length; i++){
+              grid.setFocus(rowIndex, i, true);
             }
-            S.copyTextToClipboard(JSON.stringify(values));
+            var cell = grid.getCell(rowIndex, grid.columns.length -1);
+            grid.startEdit(e, cell);
         });
           element.style.width = grid.numbersColumnWidth + "px";
           element.style.height = grid.columnHeight + "px";
