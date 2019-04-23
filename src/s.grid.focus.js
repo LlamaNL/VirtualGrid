@@ -32,7 +32,6 @@
           grid.selected = [];
       }
       grid.selected.push(cell);
-      // TODO: add check to see duplicates
       // darle el foco para que reciba eventos de teclado
       cell.element.focus();
     } else if (cell != null && arrayContainsObject){
@@ -43,13 +42,11 @@
       }
       
       // remove focus from selected cell
-      var row = cell.rowIndex;
-      var column = cell.columnIndex;
       var removeEl = document.querySelectorAll('.focus');
       for (var i = 0; i < removeEl.length; i++) {
         var elementcolumn = removeEl[i].className.split(' ')[1];
         var elementrow = removeEl[i].className.split(' ')[2];
-        if (elementrow == row && elementcolumn == column){
+        if (elementrow == cell.rowIndex && elementcolumn == cell.columnIndex){
           removeEl[i].remove();
         }
       } 
