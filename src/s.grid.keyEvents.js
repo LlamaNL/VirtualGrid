@@ -26,7 +26,7 @@
 			}
 		});
 	};
-
+	
 	S.grid.prototype.initCellKeyboardEvents = function (cell) {
 		var grid = this;
 		var element = cell.element;
@@ -40,7 +40,7 @@
 		switch (e.keyCode) {
 			case KEY_UP:
 				if (cell.rowIndex > 0) {
-					grid.setFocus(cell.rowIndex - 1, cell.columnIndex);
+					grid.setFocus(cell.rowIndex - 1, cell.columnIndex, false);
 				}
 				S.stopBubble(e);
 				break;
@@ -48,14 +48,14 @@
 			case KEY_DOWN:
 			case ENTER:
 				if (cell.rowIndex < grid.rows.length) {
-					grid.setFocus(cell.rowIndex + 1, cell.columnIndex);
+					grid.setFocus(cell.rowIndex + 1, cell.columnIndex, false);
 				}
 				S.stopBubble(e);
 				break;
 
 			case KEY_LEFT:
 				if (cell.columnIndex > 0) {
-					grid.setFocus(cell.rowIndex, cell.columnIndex - 1);
+					grid.setFocus(cell.rowIndex, cell.columnIndex - 1, false);
 				}
 				S.stopBubble(e);
 				break;
@@ -63,7 +63,7 @@
 			case KEY_RIGHT:
 			case TAB:
 				if (cell.columnIndex < grid.columns.length) {
-					grid.setFocus(cell.rowIndex, cell.columnIndex + 1);
+					grid.setFocus(cell.rowIndex, cell.columnIndex + 1, false);
 				}
 				S.stopBubble(e);
 				break;
