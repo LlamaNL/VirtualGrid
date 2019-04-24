@@ -1,4 +1,3 @@
-
 (function () {
   "use strict";
 
@@ -213,7 +212,7 @@
     }
 
     var element = S.create("div", null, style, panel, value);
-    element.style.width = (column.width + 1) + "px";// +1 to hide borders
+    element.style.width = (column.width + 1) + "px"; // +1 to hide borders
     element.style.height = (grid.columnHeight + 1) + "px"; // +1 to hide borders
 
     var left = column.left + grid.numbersColumnWidth;

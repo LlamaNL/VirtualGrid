@@ -1,4 +1,3 @@
-
 (function () {
     "use strict";
 
@@ -21,8 +20,7 @@
         element.onselectstart = function (e) {
             if (e.preventDefault) {
                 e.preventDefault();
-            }
-            else {
+            } else {
                 event.returnValue = false;
             }
             return false;
@@ -68,7 +66,10 @@
 
     S.getSize = function (item) {
         item = S.get(item);
-        return { width: item.offsetWidth, height: item.offsetHeight };
+        return {
+            width: item.offsetWidth,
+            height: item.offsetHeight
+        };
     };
 
     S.create = function (type, id, className, parent, text) {
@@ -99,8 +100,7 @@
             var sel = document.selection.createRange();
             sel.moveStart('character', -element.value.length);
             return sel.text.length;
-        }
-        else if (typeof element.selectionStart === 'number') {
+        } else if (typeof element.selectionStart === 'number') {
             return element.selectionStart;
         }
 
@@ -122,7 +122,10 @@
         var x = event.pageX - totalOffsetX - document.body.scrollLeft;
         var y = event.pageY - totalOffsetY - document.body.scrollTop;
 
-        return { x: x, y: y }
+        return {
+            x: x,
+            y: y
+        }
     };
 
     S.setText = function (element, text) {
@@ -134,8 +137,7 @@
 
         if (element.innerText) {
             element.innerText = text;
-        }
-        else {
+        } else {
             element.textContent = text;
         }
     };
@@ -143,11 +145,9 @@
     S.attach = function (element, evType, func, useCapture) {
         if (element.addEventListener) {
             element.addEventListener(evType, func, useCapture);
-        }
-        else if (element.attachEvent) {
+        } else if (element.attachEvent) {
             element.attachEvent('on' + evType, func);
-        }
-        else {
+        } else {
             element['on' + evType] = func;
         }
     };
@@ -159,8 +159,7 @@
 
         if (event.preventDefault) {
             event.preventDefault();
-        }
-        else {
+        } else {
             event.returnValue = false;
         }
     };

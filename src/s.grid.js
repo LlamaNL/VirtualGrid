@@ -1,4 +1,3 @@
-
 (function () {
   "use strict";
 
@@ -172,8 +171,7 @@
       if (grid.totalRows > 0) {
         grid.buildRows(rowIndex || 0);
         grid.setFocus(0, 0);
-      }
-      else {
+      } else {
         grid.clear();
       }
     };
