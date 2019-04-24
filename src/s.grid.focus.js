@@ -32,7 +32,7 @@
 				grid.selected = [];
 			}
 			grid.selected.push(cell);
-			// darle el foco para que reciba eventos de teclado
+			// focus on the element to receive key events
 			cell.element.focus();
 		} else if (cell != null && arrayContainsObject) {
 			// remove cell from grid.selected

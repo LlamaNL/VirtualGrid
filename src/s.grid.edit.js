@@ -75,7 +75,7 @@
 					grid.endEdit();
 
 					if (cell.rowIndex < grid.rows.length) {
-						grid.setFocus(cell.rowIndex + 1, cell.columnIndex);
+						grid.setFocus(cell.rowIndex + 1, cell.columnIndex, false);
 					}
 					S.stopBubble(e);
 					break;
@@ -86,14 +86,14 @@
 
 					grid.endEdit();
 					if (cell.columnIndex < grid.columns.length) {
-						grid.setFocus(cell.rowIndex, cell.columnIndex + 1);
+						grid.setFocus(cell.rowIndex, cell.columnIndex + 1, false);
 					}
 					break;
 
 				case KEY_UP:
 					grid.endEdit();
 					if (cell.rowIndex > 0) {
-						grid.setFocus(cell.rowIndex - 1, cell.columnIndex);
+						grid.setFocus(cell.rowIndex - 1, cell.columnIndex, false);
 					}
 					S.stopBubble(e);
 					break;
@@ -104,7 +104,7 @@
 						if (position <= 0) {
 							grid.endEdit();
 							if (cell.columnIndex > 0) {
-								grid.setFocus(cell.rowIndex, cell.columnIndex - 1);
+								grid.setFocus(cell.rowIndex, cell.columnIndex - 1, false);
 							}
 							S.stopBubble(e);
 						}
@@ -116,7 +116,7 @@
 					if (position >= editor.value.length) {
 						grid.endEdit();
 						if (cell.columnIndex < grid.columns.length) {
-							grid.setFocus(cell.rowIndex, cell.columnIndex + 1);
+							grid.setFocus(cell.rowIndex, cell.columnIndex + 1, false);
 						}
 						S.stopBubble(e);
 					}
@@ -145,7 +145,7 @@
 					grid.setValue(cell, newValue);
 
 					if (grid.onCellChanged) {
-						// lanzar el evento de que se ha modificado una celda.
+						// launch the event that a cell has been modified.
 						grid.onCellChanged(newValue, oldValue, cell);
 					}
 				}

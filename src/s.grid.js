@@ -67,7 +67,7 @@
 			return row.cells[columnIndex];
 		};
 
-		// Devuelve el numero de rows visibles.
+		// Returns the number of visible rows.
 		this.visibleRowCount = function () {
 			return parseInt(grid.globalPanelSize.height / grid.columnHeight);
 		}
@@ -152,7 +152,7 @@
 			return true;
 		}
 
-		// indica si el row esta generado en el dom o es virtual
+		// Indicates whether the row is generated in the dom or is virtual
 		this.isRowRendered = function (rowIndex) {
 			if (grid.rows.length <= rowIndex) {
 				return false;

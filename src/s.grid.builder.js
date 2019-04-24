@@ -67,7 +67,7 @@
 			globalPanel.appendChild(gridWrapper);
 		}
 
-		// si la columna es de 
+		// If the column is
 		function initColumns() {
 			var left = 0;
 
@@ -109,7 +109,7 @@
 		var values = grid.values;
 		var columns = grid.columns;
 
-		// los rows que genera realmente. 
+		// the rows that it actually generates. 
 		var page = grid.renderPageSize;
 
 		var start = page.start;
@@ -119,14 +119,14 @@
 
 		var rows = grid.rows;
 
-		// crear los nuevos rows
+		// create the new rows
 		for (var i = start; i < end; i++) {
 			if (!grid.isRowRendered(i)) {
 				buildRow(i);
 			}
 		}
 
-		// borrar los anteriores
+		// delete the previous ones
 		for (var i = start - 1; i >= 0; i--) {
 			var row = rows[i];
 			if (row != null) {
@@ -135,7 +135,7 @@
 			}
 		}
 
-		// borrar los posteriores
+		// delete the later ones
 		for (var i = rows.length - 1; i >= end; i--) {
 			var row = rows[i];
 			if (row != null) {
@@ -190,6 +190,7 @@
 					grid.setFocus(rowIndex, i, true);
 				}
 				var cell = grid.getCell(rowIndex, grid.columns.length - 1);
+				cell.element.focus();
 				grid.startEdit(e, cell);
 			});
 			element.style.width = grid.numbersColumnWidth + "px";
