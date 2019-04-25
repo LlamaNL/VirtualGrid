@@ -195,10 +195,17 @@
 		}
 
 		this.setValue = function (cell, value) {
-			cell.value = value;
+			var newvalue;
+			if (isNaN(value)) {
+				newvalue = value;
+			} else {
+				newvalue = Number(value);
+			}
+			cell.value = newvalue;
+
 			S.setText(cell.element, value);
-			grid.values[cell.rowIndex][cell.columnIndex] = value;
-			grid.backup[cell.rowIndex][cell.columnIndex] = value;
+			grid.values[cell.rowIndex][cell.columnIndex] = newvalue;
+			grid.backup[cell.rowIndex][cell.columnIndex] = newvalue;
 			grid.sortedColumn = null;
 		};
 
