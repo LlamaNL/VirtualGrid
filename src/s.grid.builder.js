@@ -190,8 +190,7 @@
 					grid.setFocus(rowIndex, i, true);
 				}
 				var cell = grid.getCell(rowIndex, grid.columns.length - 1);
-				cell.element.focus();
-				grid.startEdit(e, cell);
+				grid.startEdit(null,cell);
 			});
 			element.style.width = grid.numbersColumnWidth + "px";
 			element.style.height = grid.columnHeight + "px";

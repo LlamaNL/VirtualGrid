@@ -21,6 +21,7 @@
 	}
 
 	S.grid.prototype.startEdit = function (e, cell) {
+		S.stopBubble();
 		var grid = this;
 
 		if (grid.editingCell != null) {
