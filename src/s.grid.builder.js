@@ -189,7 +189,7 @@
 				for (var i = 1; i < grid.columns.length; i++) {
 					grid.setFocus(rowIndex, i, true);
 				}
-				var cell = grid.getCell(rowIndex, grid.columns.length - 1);
+				var cell = grid.getCell(rowIndex, 0);
 				grid.startEdit(null,cell);
 			});
 			element.style.width = grid.numbersColumnWidth + "px";
