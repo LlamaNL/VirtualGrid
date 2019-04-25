@@ -56,7 +56,7 @@
 			};
 
 			setEditorBounds(editor, cell);
-			grid.wrapper.appendChild(editor);
+			grid.panel.appendChild(editor);
 			return editor;
 		}
 
