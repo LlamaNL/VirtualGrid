@@ -223,7 +223,7 @@
 		element.tabIndex = 0;
 
 		return {
-			value: value,
+			value: value.toString(),
 			rowIndex: rowIndex,
 			columnIndex: columnIndex,
 			element: element,
