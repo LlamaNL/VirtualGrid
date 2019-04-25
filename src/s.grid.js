@@ -199,6 +199,7 @@
 			S.setText(cell.element, value);
 			grid.values[cell.rowIndex][cell.columnIndex] = value;
 			grid.backup[cell.rowIndex][cell.columnIndex] = value;
+			grid.sortedColumn = null;
 		};
 
 		this.getCellAtEvent = function (e) {
