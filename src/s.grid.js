@@ -187,6 +187,7 @@
 			cell.value = value;
 			S.setText(cell.element, value);
 			grid.values[cell.rowIndex][cell.columnIndex] = value;
+			grid.backup[cell.rowIndex][cell.columnIndex] = value;
 		};
 
 		this.getCellAtEvent = function (e) {
