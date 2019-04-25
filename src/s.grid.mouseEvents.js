@@ -18,15 +18,14 @@
 			var target = e.target || e.srcElement;
 
 			var columnIndex = target.className.split(' ')[2];
-
-			// sort columnIndex
-			var newvalues = grid.values.sort(function (a, b) {
-				if (a[columnIndex] === b[columnIndex]) {
-					return 0;
-				} else {
-					return (a[columnIndex] < b[columnIndex]) ? -1 : 1;
-				}
-			});
+			var newvalues;
+			if (grid.sortedColumn == columnIndex) {
+				newvalues = grid.values.reverse();
+			} else {
+				// sort columnIndex
+				newvalues = grid.sortValues(columnIndex);
+				grid.sortedColumn = columnIndex;
+			}
 			grid.setValues(newvalues);
 		}, false);
 	};

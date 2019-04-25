@@ -14,6 +14,7 @@
 		this.shortcuts = [];
 		var initialized = false;
 		this.selected = [];
+		this.sortedColumn = null;
 		var lastScrollLeft = 0;
 		var lastScrollTop = 0;
 
@@ -24,6 +25,16 @@
 				grid.backup = values;
 			}
 			grid.reload();
+		}
+		this.sortValues = function (columnIndex) {
+			var newvalues = grid.values.sort(function (a, b) {
+				if (a[columnIndex] === b[columnIndex]) {
+					return 0;
+				} else {
+					return (a[columnIndex] < b[columnIndex]) ? -1 : 1;
+				}
+			});
+			return newvalues;
 		}
 
 		function init() {
