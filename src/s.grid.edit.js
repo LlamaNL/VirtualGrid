@@ -9,6 +9,7 @@
 	var TAB = 9;
 	var cKey = 67;
 	var vKey = 86;
+	var ESCAPE = 27;
 
 	S.grid.prototype.initEditEvents = function () {
 		var grid = this;
@@ -130,6 +131,12 @@
 						});
 						S.copyTextToClipboard(selected);
 					}
+					break;
+
+				case ESCAPE:
+					// set old value. end edit
+					editor.value = grid.editingCell.value;
+					grid.endEdit();
 					break;
 			}
 		}
