@@ -22,16 +22,19 @@
 			}
 
 			var columnIndex = target.className.split(' ')[2];
-			var newvalues;
 			if (grid.sortedColumn == columnIndex) {
 				grid.sortedColumn = -1;
-				newvalues = grid.values.reverse();
+				grid.values.reverse();
+				grid.reload();
 			} else {
 				// sort columnIndex
 				grid.sortedColumn = columnIndex;
-				newvalues = grid.sortValues(columnIndex);
+				grid.values.sort(function(a, b) {
+					return a[columnIndex].toString().localeCompare(b[columnIndex]);
+				  });
+				grid.reload();
 			}
-			grid.setValues(newvalues);
+			
 		}, false);
 	};
 })();

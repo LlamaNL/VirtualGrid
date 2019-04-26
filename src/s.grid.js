@@ -26,16 +26,6 @@
 			}
 			grid.reload();
 		}
-		this.sortValues = function (columnIndex) {
-			var newvalues = grid.values.sort(function (a, b) {
-				if (a[columnIndex] === b[columnIndex]) {
-					return 0;
-				} else {
-					return (a[columnIndex] < b[columnIndex]) ? -1 : 1;
-				}
-			});
-			return newvalues;
-		}
 
 		function init() {
 			grid.build();
@@ -197,16 +187,16 @@
 		this.setValue = function (cell, value) {
 			var newvalue;
 			if (isNaN(value)) {
-				newvalue = value;
+				newvalue = value.toString();
 			} else {
 				newvalue = Number(value);
 			}
-			cell.value = newvalue;
+			cell.value = value.toString();
 
-			S.setText(cell.element, value);
 			grid.values[cell.rowIndex][cell.columnIndex] = newvalue;
 			grid.backup[cell.rowIndex][cell.columnIndex] = newvalue;
-			grid.sortedColumn = null;
+
+			S.setText(cell.element, cell.value);
 		};
 
 		this.getCellAtEvent = function (e) {
