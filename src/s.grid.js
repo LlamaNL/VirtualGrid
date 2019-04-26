@@ -14,7 +14,7 @@
 		this.shortcuts = [];
 		var initialized = false;
 		this.selected = [];
-		this.sortedColumn = null;
+		this.sortedColumn = -1;
 		var lastScrollLeft = 0;
 		var lastScrollTop = 0;
 

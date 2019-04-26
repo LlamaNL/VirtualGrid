@@ -20,11 +20,12 @@
 			var columnIndex = target.className.split(' ')[2];
 			var newvalues;
 			if (grid.sortedColumn == columnIndex) {
+				grid.sortedColumn = -1;
 				newvalues = grid.values.reverse();
 			} else {
 				// sort columnIndex
-				newvalues = grid.sortValues(columnIndex);
 				grid.sortedColumn = columnIndex;
+				newvalues = grid.sortValues(columnIndex);
 			}
 			grid.setValues(newvalues);
 		}, false);
