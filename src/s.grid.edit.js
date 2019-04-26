@@ -142,6 +142,8 @@
 		}
 
 		S.grid.prototype.endEdit = function () {
+			grid.sortedColumn = -1;
+			
 			var cell = grid.editingCell;
 			if (cell != null) {
 				grid.editingCell = null;
