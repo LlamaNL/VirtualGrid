@@ -17,7 +17,7 @@
 			e = e || window.event;
 			var target = e.target || e.srcElement;
 
-			if (grid.editingCell != null){
+			if (grid.editingCell != null) {
 				grid.endEdit();
 			}
 
@@ -29,12 +29,25 @@
 			} else {
 				// sort columnIndex
 				grid.sortedColumn = columnIndex;
-				grid.values.sort(function(a, b) {
-					return a[columnIndex].toString().localeCompare(b[columnIndex]);
-				  });
-				grid.reload();
+				// grid.values.sort(function(a, b) {
+				// 	return a[columnIndex].toString().localeCompare(b[columnIndex]);
+				//   });
+				var numbers = grid.values.filter(col => !isNaN(col[columnIndex]));
+				var strings = grid.values.filter(col => isNaN(col[columnIndex]));
+				if (numbers.length > 0) {
+					numbers.sort(function (a,b) { 
+						return a[columnIndex] - b[columnIndex];
+					});
+				}
+				if (strings.length > 0) {
+					strings.sort(function (a, b) {
+						return a[columnIndex].localeCompare(b[columnIndex]);
+					});
+				}
+				var newvalues = numbers.concat(strings);
+				grid.setValues(newvalues);
 			}
-			
+
 		}, false);
 	};
 })();
