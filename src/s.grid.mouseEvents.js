@@ -17,6 +17,10 @@
 			e = e || window.event;
 			var target = e.target || e.srcElement;
 
+			if (grid.editingCell != null){
+				grid.endEdit();
+			}
+
 			var columnIndex = target.className.split(' ')[2];
 			var newvalues;
 			if (grid.sortedColumn == columnIndex) {
