@@ -32,19 +32,8 @@
 				// grid.values.sort(function(a, b) {
 				// 	return a[columnIndex].toString().localeCompare(b[columnIndex]);
 				//   });
-				var numbers = grid.values.filter(col => !isNaN(col[columnIndex]));
-				var strings = grid.values.filter(col => isNaN(col[columnIndex]));
-				if (numbers.length > 0) {
-					numbers.sort(function (a,b) { 
-						return a[columnIndex] - b[columnIndex];
-					});
-				}
-				if (strings.length > 0) {
-					strings.sort(function (a, b) {
-						return a[columnIndex].localeCompare(b[columnIndex]);
-					});
-				}
-				var newvalues = numbers.concat(strings);
+				var newvalues = grid.sortArray(grid.values, columnIndex);
+				grid.backup = grid.sortArray(grid.backup, columnIndex);
 				grid.setValues(newvalues);
 			}
 

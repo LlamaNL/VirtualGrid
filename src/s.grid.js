@@ -21,10 +21,26 @@
 		this.setValues = function (values, init) {
 			grid.values = values;
 			if (init === true) {
-				// this is passed by reference, so any sort of grid.values sorts grid.backup
 				grid.backup = values;
 			}
 			grid.reload();
+		}
+
+		this.sortArray = function (array, columnIndex){
+			var numbers = array.filter(col => !isNaN(col[columnIndex]));
+			var strings = array.filter(col => isNaN(col[columnIndex]));
+			if (numbers.length > 0) {
+				numbers.sort(function (a,b) { 
+					return a[columnIndex] - b[columnIndex];
+				});
+			}
+			if (strings.length > 0) {
+				strings.sort(function (a, b) {
+					return a[columnIndex].localeCompare(b[columnIndex]);
+				});
+			}
+			var newvalues = numbers.concat(strings);
+			return newvalues;
 		}
 
 		function init() {
