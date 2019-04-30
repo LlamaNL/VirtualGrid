@@ -194,7 +194,6 @@
 			cell.value = value.toString();
 
 			grid.values[cell.rowIndex][cell.columnIndex] = newvalue;
-			grid.backup[cell.rowIndex][cell.columnIndex] = newvalue;
 
 			S.setText(cell.element, cell.value);
 		};
