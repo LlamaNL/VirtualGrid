@@ -187,7 +187,6 @@
 			grid.totalRows = getTotalRows();
 			if (grid.totalRows > 0) {
 				grid.buildRows(rowIndex || 0);
-				grid.setFocus(0, 0);
 			} else {
 				grid.clear();
 			}
