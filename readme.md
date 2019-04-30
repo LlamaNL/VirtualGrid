@@ -3,9 +3,11 @@ Javascript Virtual Grid
 
     * Handles millions of rows fast and efficiently.
     * No dependencies.
-    * Single 9 kB file.
+	* Column Sorting
+	* Row Select
+	* Multi Cell Select
 
-[Demo](http://scorredoira.github.io/virtualgrid)
+[Demo](http://llamanl.github.io/VirtualGrid)
 
 Usage:
 
@@ -24,6 +26,5 @@ Usage:
 
 	var grid = new S.grid("grid1");
 	grid.columns = columns;
-	grid.values = values;
-	grid.update();	
+	grid.setValues(values, true);
 ```
