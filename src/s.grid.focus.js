@@ -42,12 +42,12 @@
 			}
 
 			// remove focus from selected cell
-			var removeEl = document.querySelectorAll('.focus');
-			for (var i = 0; i < removeEl.length; i++) {
-				var elementcolumn = removeEl[i].className.split(' ')[1];
-				var elementrow = removeEl[i].className.split(' ')[2];
+			var elements = document.querySelectorAll('.focus');
+			for (var i = 0; i < elements.length; i++) {
+				var elementcolumn = elements[i].className.split(' ')[1];
+				var elementrow = elements[i].className.split(' ')[2];
 				if (elementrow == cell.rowIndex && elementcolumn == cell.columnIndex) {
-					removeEl[i].remove();
+					elements[i].remove();
 				}
 			}
 		}

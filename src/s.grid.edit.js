@@ -19,7 +19,7 @@
 				grid.startEdit(e, cell);
 			}
 		});
-	}
+	};
 
 	S.grid.prototype.startEdit = function (e, cell) {
 		S.stopBubble(e);
@@ -41,7 +41,7 @@
 
 		function buildEditor() {
 			editor = document.createElement("input");
-			editor.type = "text"
+			editor.type = "text";
 			editor.className = "gridEditor";
 
 			editor.onblur = function (e) {
@@ -65,8 +65,8 @@
 			var element = cell.element;
 			editor.style.top = (element.offsetTop + 2) + "px";
 			editor.style.left = (element.offsetLeft + 2) + "px";
-			editor.style.width = (element.offsetWidth - 4) + "px";;
-			editor.style.height = (element.offsetHeight - 4) + "px";;
+			editor.style.width = (element.offsetWidth - 4) + "px";
+			editor.style.height = (element.offsetHeight - 4) + "px";
 		}
 
 
@@ -163,6 +163,6 @@
 				S.removeNode(editor);
 				editor = null;
 			}
-		}
+		};
 	};
 })();

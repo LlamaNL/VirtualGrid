@@ -88,7 +88,7 @@
 				column.left = left;
 				left += column.width;
 				grid.columnsWidth += column.width;
-			};
+			}
 		}
 
 		function setGridWrapperBounds() {
@@ -152,7 +152,7 @@
 			for (var i = cells.length - 1; i >= 0; i--) {
 				var element = cells[i].element;
 				grid.panel.removeChild(element);
-			};
+			}
 
 		}
 
