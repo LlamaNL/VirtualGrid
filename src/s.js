@@ -156,7 +156,7 @@
         if (!event) {
             event = window.event;
         }
-        if (!event){
+        if (!event) {
             return;
         }
 
@@ -227,7 +227,7 @@
 
     S.range = function (start, end) {
         var ans = [];
-        if (start > end){
+        if (start > end) {
             var temp = start;
             start = end;
             end = temp;

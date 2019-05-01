@@ -37,7 +37,6 @@
 
 			var columnIndex = target.className.split(' ')[2];
 			if (grid.sortedColumn == columnIndex) {
-				grid.sortedColumn = -1;
 				grid.values.reverse();
 				grid.reload();
 			} else {

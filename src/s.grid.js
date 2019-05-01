@@ -36,6 +36,7 @@
 			grid.values = values;
 			if (init === true) {
 				grid.backup = values;
+				grid.sortedColumn = -1;
 			}
 			grid.reload();
 		};
