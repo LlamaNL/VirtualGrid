@@ -43,11 +43,11 @@
 
 			// remove focus from selected cell
 			var elements = document.querySelectorAll('.focus');
-			for (var i = 0; i < elements.length; i++) {
-				var elementcolumn = elements[i].className.split(' ')[1];
-				var elementrow = elements[i].className.split(' ')[2];
+			for (var j = 0; j < elements.length; j++) {
+				var elementcolumn = elements[j].className.split(' ')[1];
+				var elementrow = elements[j].className.split(' ')[2];
 				if (elementrow == cell.rowIndex && elementcolumn == cell.columnIndex) {
-					elements[i].remove();
+					elements[j].remove();
 				}
 			}
 		}

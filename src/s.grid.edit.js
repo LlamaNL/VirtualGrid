@@ -102,8 +102,8 @@
 
 				case KEY_LEFT:
 					if (cell.columnIndex > 0) {
-						var position = S.getCaretPosition(editor);
-						if (position <= 0) {
+						var leftpos = S.getCaretPosition(editor);
+						if (leftpos <= 0) {
 							grid.endEdit();
 							if (cell.columnIndex > 0) {
 								grid.setFocus(cell.rowIndex, cell.columnIndex - 1, false);
@@ -114,8 +114,8 @@
 					break;
 
 				case KEY_RIGHT:
-					var position = S.getCaretPosition(editor);
-					if (position >= editor.value.length) {
+					var rightpos = S.getCaretPosition(editor);
+					if (rightpos >= editor.value.length) {
 						grid.endEdit();
 						if (cell.columnIndex < grid.columns.length) {
 							grid.setFocus(cell.rowIndex, cell.columnIndex + 1, false);
