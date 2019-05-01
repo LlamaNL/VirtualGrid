@@ -43,9 +43,6 @@
 			} else {
 				// sort columnIndex
 				grid.sortedColumn = columnIndex;
-				// grid.values.sort(function(a, b) {
-				// 	return a[columnIndex].toString().localeCompare(b[columnIndex]);
-				//   });
 				var newvalues = grid.sortArray(grid.values, columnIndex);
 				grid.backup = grid.sortArray(grid.backup, columnIndex);
 				grid.setValues(newvalues);
