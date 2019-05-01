@@ -8,7 +8,7 @@
 		if (multi === false) {
 			var removeEl = document.querySelectorAll('.focus');
 			for (var i = 0; i < removeEl.length; i++) {
-				removeEl[i].remove();
+				removeEl[i].parentNode.removeChild(removeEl[i]);
 			}
 			grid.selected = [];
 		}
@@ -47,7 +47,7 @@
 				var elementcolumn = elements[j].className.split(' ')[1];
 				var elementrow = elements[j].className.split(' ')[2];
 				if (elementrow == cell.rowIndex && elementcolumn == cell.columnIndex) {
-					elements[j].remove();
+    				elements[j].parentNode.removeChild(elements[j]);
 				}
 			}
 		}
