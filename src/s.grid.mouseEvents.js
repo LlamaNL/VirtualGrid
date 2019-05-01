@@ -6,10 +6,24 @@
 		S.attach(grid.panel, "mousedown", function (e) {
 			var cell = grid.getCellAtEvent(e);
 			if (cell != null) {
-				if (!e.ctrlKey) {
-					grid.setFocus(cell.rowIndex, cell.columnIndex, false);
-				} else {
+				if (e.ctrlKey) {
 					grid.setFocus(cell.rowIndex, cell.columnIndex, true);
+				} else if (e.shiftKey) {
+					var columnrange = S.range(grid.selected[0].columnIndex, cell.columnIndex);
+					var rowrange = S.range(grid.selected[0].rowIndex, cell.rowIndex);
+					var first = true;
+					rowrange.forEach(function (row) {
+						columnrange.forEach(function (column) {
+							if (first) {
+								grid.setFocus(row, column, false);
+								first = false;
+							} else {
+								grid.setFocus(row, column, true);
+							}
+						});
+					});
+				} else {
+					grid.setFocus(cell.rowIndex, cell.columnIndex, false);
 				}
 			}
 		});

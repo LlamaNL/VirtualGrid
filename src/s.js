@@ -221,4 +221,17 @@
 
         document.body.removeChild(textArea);
     }
+
+    S.range = function (start, end) {
+        var ans = [];
+        if (start > end){
+            var temp = start;
+            start = end;
+            end = temp;
+        }
+        for (let i = start; i <= end; i++) {
+            ans.push(i);
+        }
+        return ans;
+    }
 })();
