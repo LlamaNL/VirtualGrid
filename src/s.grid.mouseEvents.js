@@ -27,7 +27,12 @@
 				}
 			}
 		});
+
 		S.attach(grid.headerPanel, "mousedown", function (e) {
+			grid.container.style.cursor = "wait";
+		}, false);
+
+		S.attach(grid.headerPanel, "mouseup", function (e) {
 			e = e || window.event;
 			var target = e.target || e.srcElement;
 
@@ -46,6 +51,8 @@
 				grid.backup = grid.sortArray(grid.backup, columnIndex);
 				grid.setValues(newvalues);
 			}
+
+			grid.container.style.cursor = "default";
 
 		}, false);
 	};
