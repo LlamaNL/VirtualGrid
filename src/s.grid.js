@@ -15,6 +15,7 @@
 		var initialized = false;
 		this.selected = [];
 		this.sortedColumn = -1;
+		this.sortDirection = null;
 		var lastScrollLeft = 0;
 		var lastScrollTop = 0;
 
@@ -37,6 +38,7 @@
 			if (init === true) {
 				grid.backup = values;
 				grid.sortedColumn = -1;
+				grid.sortDirection = null;
 			}
 			grid.reload();
 		};
@@ -222,6 +224,7 @@
 			}
 			cell.value = value.toString();
 
+			grid.sortDirection = null;
 			grid.values[cell.rowIndex][cell.columnIndex] = newvalue;
 
 			S.setText(cell.element, cell.value);
