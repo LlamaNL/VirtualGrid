@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -18,7 +18,7 @@
 <body>
 	<div class="page">
 		<h1>Basic Example</h1>
-		<div><input type="text" id="myInput" onkeyup="grid.filterValues(document.getElementById('myInput'))" placeholder="Search..."></div>
+		<div><input type="text" id="myInput" onkeyup="grid.filterValues(document.getElementById('myInput').value); document.getElementById('myInput').focus()" placeholder="Search..."></div>
 		<br/>
 		<div id="grid1" style="height:400px;width:800px"></div>
 		<br/>
