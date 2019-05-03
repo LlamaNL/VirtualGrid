@@ -44,11 +44,11 @@
 		};
 
 		this.sortArray = function (array, columnIndex) {
-			var numbers = array.filter(function(col){
+			var numbers = array.filter(function (col) {
 				return !isNaN(col[columnIndex]);
 			});
 
-			var strings = array.filter(function (col){
+			var strings = array.filter(function (col) {
 				return isNaN(col[columnIndex]);
 			});
 			if (numbers.length > 0) {
@@ -70,12 +70,23 @@
 				return;
 			}
 
-			var filtered = this.backup.filter(function (x){
-				return x.some(function (y){
-					return y.toString().indexOf(element.value) > -1;
+			var values = element.value.split(";");
+			values = values.filter(Boolean);
+
+			var filtered = [];
+			if (values.length > 0) {
+				filtered = this.backup.filter(function (x) {
+					var value1 = x.toString().indexOf(values[0]) > -1;
+					if (values.length > 1){
+						var value2 = x.toString().indexOf(values[1]) > -1;
+						return value1 && value2;
+					} 
+					return value1;
 				});
-			});
-			
+			} else {
+				filtered = this.backup;
+			}
+
 			grid.setValues(filtered);
 
 			// set focus back to inputbox because reload steals focus
