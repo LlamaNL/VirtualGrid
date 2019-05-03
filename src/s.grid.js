@@ -32,6 +32,18 @@
 
 			initialized = true;
 		}
+		this.setHeaders = function (){
+			var arrow = grid.sortDirection ? "⬇" : "⬆";		
+			var elements = document.getElementsByClassName("header");
+			for (var i = 0; i < elements.length; i++) {
+				var columnIndex = elements[i].className.split(' ')[2];
+				if (grid.sortedColumn == columnIndex && grid.sortedColum != -1) {
+					S.setText(elements[i], grid.columns[columnIndex].text + arrow);
+				} else {
+					S.setText(elements[i], grid.columns[columnIndex].text);
+				}
+			}
+		};
 
 		this.setValues = function (values, init) {
 			grid.values = values;
@@ -233,6 +245,8 @@
 			cell.value = value.toString();
 
 			grid.sortDirection = null;
+			grid.sortedColumn = -1;
+			grid.setHeaders();
 			grid.values[cell.rowIndex][cell.columnIndex] = newvalue;
 
 			S.setText(cell.element, cell.value);
