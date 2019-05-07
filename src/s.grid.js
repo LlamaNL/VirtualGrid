@@ -33,7 +33,9 @@
 			initialized = true;
 		}
 		this.setHeaders = function (){
-			var arrow = grid.sortDirection ? "⬇" : "⬆";		
+			// 🡅 🡇
+			// ⬇ ⬆
+			var arrow = grid.sortDirection ? "🡇" : "🡅";		
 			var elements = document.getElementsByClassName("header");
 			for (var i = 0; i < elements.length; i++) {
 				var columnIndex = elements[i].className.split(' ')[2];
