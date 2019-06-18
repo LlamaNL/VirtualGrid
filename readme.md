@@ -28,4 +28,3 @@ Usage:
 	grid.columns = columns;
 	grid.setValues(values, true);
 ```
-Test
